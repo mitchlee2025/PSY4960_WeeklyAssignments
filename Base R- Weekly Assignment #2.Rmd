@@ -1,18 +1,59 @@
 ---
-title: "Base R- Weekly Assignment #2"
-author: "Amanda Mae Woodward"
-date: "2022-10-03"
-output: html_document
+title: 'Base R Code #3'
+author: "Mitchell Lee"
+date: "10/7/2022"
+output:
+  pdf_document: default
+  html_document: default
 ---
 # Set Up
 1. Load the tidyverse library. 
+```{r}
+library(tidyverse)
+```
+
 2. Load the billboard data. 
+```{r}
+data("billboard")
+```
+
 3. What type of data is this? (e.g. describe what's in the dataset.)
+This data contains 317 songs, their artist, their date entered, and their position on the billboard top 100 throughout the weeks. 
+This contains integers, dates, empty data, and characters. 
+
+
 4. Print the column names from this dataset. 
+```{r}
+colnames(billboard)
+```
+
 5. Print the first 5 entries in the dataset. 
+```{r}
+head(billboard, 5)
+```
+
 
 # Practice
 1. Create a subset of data that has Jay-Z as the only artist. How many songs are in it?
+```{r}
+subset(billboard, artist=="Jay-Z")
+#5 songs
+```
+
+
 2. In the original dataset, use filter to find information about the song "All the small things." What was the highest position this song reached on the billboard 100? 
+```{r}
+billboard %>% filter(track=="All The Small Things")
+#    It reached position 50 in week 7
+```
+
+
 3. Create a subset of data for songs Tim McGraw sang. Summarize the data for wk 1.
+```{r}
+subset(billboard, artist=="Tim McGraw")
+summary(billboard$wk1, artist=="Tim McGraw")
+```
+
+
+
 
